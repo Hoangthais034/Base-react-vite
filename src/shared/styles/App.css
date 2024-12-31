@@ -1,0 +1,74 @@
+
+/* Position */
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.top-0 {
+  inset-block-start: 0;
+}
+
+.bottom-0 {
+  inset-block-end: 0;
+}
+
+.left-0 {
+  inset-inline-start: 0;
+}
+
+.right-0 {
+  inset-inline-end: 0;
+}
+
+.inset-0 {
+  inset: 0;
+}
+
+
+
+
+/* Component link */
+.reversed-link {
+  --reversed-link-gap: 0.1rem;
+  text-decoration: none;
+}
+
+.reversed-link:not(:has(.reversed-link__text)) {
+  background: linear-gradient(to var(--transform-origin-end), currentColor, currentColor) 0 var(--reversed-link-gap)/0 var(--reversed-link-gap) no-repeat;
+  background-position-x: var(--transform-origin-end);
+  background-position-y: bottom;
+  transition: background-size var(--animation-default);
+}
+
+.reversed-link:has(.reversed-link__text) .reversed-link__text {
+  background: linear-gradient(to var(--transform-origin-end), currentColor, currentColor) 0 var(--reversed-link-gap)/0 var(--reversed-link-gap) no-repeat;
+  background-position-x: var(--transform-origin-end);
+  background-position-y: bottom;
+  transition: background-size var(--animation-default);
+}
+
+@media (prefers-reduced-motion: no-preference) and (hover: hover) and (pointer: fine) {
+  .reversed-link:not([aria-disabled]):not(:has(.reversed-link__text)):hover {
+    background-position-x: var(--transform-origin-start);
+    background-size: 100% var(--reversed-link-gap);
+    background-position-y: bottom;
+  }
+
+  .reversed-link:not([aria-disabled]):has(.reversed-link__text):hover .reversed-link__text {
+    background-position-x: var(--transform-origin-start);
+    background-size: 100% var(--reversed-link-gap);
+    background-position-y: bottom;
+  }
+}
+
+.m-0 {
+  margin: 0;
+}
